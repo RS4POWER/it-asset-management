@@ -30,12 +30,13 @@ db.serialize(() => {
         FOREIGN KEY (assigned_to) REFERENCES employees (id)
     )`);
 
-    // --- NOU: Tabel ISTORIC (Audit) ---
+    // --- ISTORIC (AUDIT) ACTUALIZAT ---
     db.run(`CREATE TABLE IF NOT EXISTS history (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        action TEXT NOT NULL,      -- Ex: "ALOCARE", "RETURNARE", "ADAUGARE"
-        asset_name TEXT NOT NULL,  -- Salvam numele ca text (ca sa ramana chiar daca stergem obiectul)
-        employee_name TEXT,        -- Cine a fost implicat
+        action TEXT NOT NULL,
+        asset_name TEXT NOT NULL,
+        asset_serial TEXT,         -- NOU: Salvam si Serial Number
+        employee_name TEXT,
         date DATETIME DEFAULT CURRENT_TIMESTAMP
     )`);
 });
