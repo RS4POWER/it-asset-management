@@ -13,7 +13,7 @@ const AssetList = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isAssignModalOpen, setIsAssignModalOpen] = useState(false);
   
-  // --- NOU: State pentru Editare ---
+  // --- State pentru Editare ---
   const [isEditMode, setIsEditMode] = useState(false); // Stim daca adaugam sau modificam
   const [editId, setEditId] = useState(null); // ID-ul echipamentului pe care il modificam
 
@@ -48,7 +48,7 @@ const AssetList = () => {
   // Handle Form Change
   const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  // --- NOU: Functia care deschide modalul pentru EDITARE ---
+  // --- Functia care deschide modalul pentru EDITARE ---
   const openEditModal = (asset) => {
       setFormData({
           name: asset.name,
@@ -62,7 +62,7 @@ const AssetList = () => {
       setIsModalOpen(true);
   };
 
-  // --- NOU: Functia care deschide modalul pentru ADAUGARE (Reset) ---
+  // --- Functia care deschide modalul pentru ADAUGARE (Reset) ---
   const openAddModal = () => {
       setFormData({ name: '', type: 'Laptop', brand: '', serial_number: '', purchase_date: '' });
       setIsEditMode(false);
@@ -74,7 +74,7 @@ const AssetList = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    // --- NOU: Logica duala (POST vs PUT) ---
+    // --- Logica duala (POST vs PUT) ---
     const url = isEditMode 
         ? `http://localhost:3000/api/assets/${editId}` // Daca editam, trimitem la ID
         : 'http://localhost:3000/api/assets';          // Daca e nou, trimitem la general
@@ -200,7 +200,7 @@ const AssetList = () => {
                     </td>
                     <td className="py-4 px-6 text-center">
                         <div className="flex justify-center space-x-2">
-                             {/* NOU: Butonul de EDIT */}
+                             {/* Butonul de EDIT */}
                             <button onClick={() => openEditModal(asset)} className="text-blue-500 hover:text-blue-700 font-medium text-xs border border-blue-200 px-2 py-1 rounded hover:bg-blue-50" title="Editează">
                                 ✏️
                             </button>
@@ -249,7 +249,7 @@ const AssetList = () => {
         </div>
       )}
 
-      {/* MODAL ALOCARE (Neschimbat) */}
+      {/* MODAL ALOCARE */}
       {isAssignModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
            <div className="bg-white rounded-lg shadow-xl w-full max-w-sm p-6">

@@ -19,7 +19,7 @@ const Dashboard = () => {
         ]);
 
         const assets = await resAssets.json();
-        const emps = await resEmps.json(); // Atentie, asta poate fi {data: []} sau []
+        const emps = await resEmps.json(); 
 
         // Calculam statisticile
         const totalAssets = assets.length;

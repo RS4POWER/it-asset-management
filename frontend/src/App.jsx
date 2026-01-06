@@ -32,7 +32,7 @@ function App() {
           </div>
         )}
 
-        {/* RUTA ISTORIC (History) - Aici trebuia pusa! */}
+        {/* RUTA ISTORIC (History) */}
         {activeTab === 'history' && (
            <div className="animate-fade-in">
               <HistoryLog />

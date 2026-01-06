@@ -30,7 +30,7 @@ db.serialize(() => {
         FOREIGN KEY (assigned_to) REFERENCES employees (id)
     )`);
 
-    // --- ISTORIC (AUDIT) ACTUALIZAT ---
+    // --- ISTORIC (AUDIT)  ---
     db.run(`CREATE TABLE IF NOT EXISTS history (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         action TEXT NOT NULL,

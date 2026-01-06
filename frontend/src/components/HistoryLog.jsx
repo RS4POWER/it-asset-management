@@ -104,7 +104,7 @@ const HistoryLog = () => {
                         <th className="py-3 px-6 border-b">Data / Ora</th>
                         <th className="py-3 px-6 border-b">Acțiune</th>
                         <th className="py-3 px-6 border-b">Echipament</th>
-                        <th className="py-3 px-6 border-b">Serial Number</th> {/* Coloana NOUA */}
+                        <th className="py-3 px-6 border-b">Serial Number</th> {/* Coloana NOUA  DE ADAUGAT*/}
                         <th className="py-3 px-6 border-b">Angajat Implicat</th>
                     </tr>
                 </thead>
