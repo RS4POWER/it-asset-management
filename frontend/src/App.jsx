@@ -1,41 +1,34 @@
 import { useState } from 'react'
 import Navbar from './components/Navbar'
 import AssetList from './components/AssetList'
-import EmployeeList from './components/EmployeeList' 
-
+import EmployeeList from './components/EmployeeList'
+import Dashboard from './components/Dashboard' // Importam dashboard-ul
 
 function App() {
-  // Starea pentru a sti ce pagina vedem: 'assets' sau 'employees'
-  const [activeTab, setActiveTab] = useState('assets');
+  const [activeTab, setActiveTab] = useState('dashboard'); // Pornim direct pe Dashboard
 
   return (
     <div className="min-h-screen bg-gray-50 pb-10">
-      {/* Meniul de sus */}
       <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
 
       <div className="max-w-6xl mx-auto px-4">
         
-        {/* Logica conditionala: Daca tab-ul e 'assets', arata lista de active */}
+        {/* RUTA DASHBOARD */}
+        {activeTab === 'dashboard' && <Dashboard />}
+
+        {/* RUTA ASSETS */}
         {activeTab === 'assets' && (
           <div className="animate-fade-in">
-             <div className="mb-6">
-                <h1 className="text-2xl font-bold text-gray-800">Management Active IT</h1>
-                <p className="text-gray-500">Gestionează echipamentele, licențele și perifericele.</p>
-             </div>
              <AssetList />
           </div>
         )}
 
-       {/* Daca tab-ul e 'employees', arata lista reala */}
-{activeTab === 'employees' && (
-  <div className="animate-fade-in">
-     <div className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-800">Gestiune Angajați</h1>
-        <p className="text-gray-500">Administrează personalul și departamentele.</p>
-     </div>
-     <EmployeeList />
-  </div>
-)}
+        {/* RUTA EMPLOYEES */}
+        {activeTab === 'employees' && (
+          <div className="animate-fade-in">
+             <EmployeeList />
+          </div>
+        )}
 
       </div>
     </div>
