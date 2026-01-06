@@ -25,6 +25,9 @@ const Navbar = ({ activeTab, setActiveTab }) => {
             <button onClick={() => setActiveTab('employees')} className={getButtonClass('employees')}>
               👥 Angajați
             </button>
+            <button onClick={() => setActiveTab('history')} className={getButtonClass('history')}>
+            📜 Istoric
+            </button>
           </div>
         </div>
       </div>
