@@ -30,6 +30,17 @@ app.post('/api/employees', (req, res) => {
     });
 });
 
+// NOU: Actualizeaza un angajat (UPDATE)
+app.put('/api/employees/:id', (req, res) => {
+    const { name, email, department } = req.body;
+    const sql = `UPDATE employees SET name = ?, email = ?, department = ? WHERE id = ?`;
+    
+    db.run(sql, [name, email, department, req.params.id], function(err) {
+        if (err) return res.status(500).json({ error: err.message });
+        res.json({ message: "Angajat actualizat!" });
+    });
+});
+
 // NOU: Sterge un angajat
 // Atentie: Ar trebui sa verificam daca are active alocate inainte sa-l stergem, 
 // dar pentru simplitate acum il stergem direct.
