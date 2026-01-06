@@ -1,9 +1,8 @@
 import { useState } from 'react'
 import Navbar from './components/Navbar'
 import AssetList from './components/AssetList'
-// O sa facem si componenta EmployeeList separat data viitoare, 
-// dar momentan lasam un placeholder simplu sau o mutam.
-// Pentru simplitate acum, hai sa folosim logica de comutare.
+import EmployeeList from './components/EmployeeList' 
+
 
 function App() {
   // Starea pentru a sti ce pagina vedem: 'assets' sau 'employees'
@@ -27,13 +26,16 @@ function App() {
           </div>
         )}
 
-        {/* Daca tab-ul e 'employees', arata un mesaj temporar (urmeaza sa facem componenta) */}
-        {activeTab === 'employees' && (
-          <div className="bg-white p-8 rounded-lg shadow text-center">
-            <h2 className="text-xl font-bold text-gray-700 mb-2">Secțiunea Angajați</h2>
-            <p className="text-gray-500">Aici vom muta tabelul cu angajați pe care l-am făcut anterior.</p>
-          </div>
-        )}
+       {/* Daca tab-ul e 'employees', arata lista reala */}
+{activeTab === 'employees' && (
+  <div className="animate-fade-in">
+     <div className="mb-6">
+        <h1 className="text-2xl font-bold text-gray-800">Gestiune Angajați</h1>
+        <p className="text-gray-500">Administrează personalul și departamentele.</p>
+     </div>
+     <EmployeeList />
+  </div>
+)}
 
       </div>
     </div>
